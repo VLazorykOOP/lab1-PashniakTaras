@@ -8,10 +8,13 @@
 
 #include <time.h>
 const int MAX = 100;
+const int m = -100000;
 using namespace std;
 
 int main()
 {   
+    /*Завдання 1
+    
     double A[MAX];
     int nA, nZero=0, i;
     do {
@@ -27,6 +30,59 @@ int main()
     for (i = 0; i < nA; i++)
         if (A[i] == 0) nZero++;
     cout << "Amount of zero-elemts: " << nZero << endl;
+    return;
+    */ 
+
+    /*Завдання 2
+        Створюєш вказівник
+        Виділяєш потрібну к-сть пам'яті за допомогою цього вказівника
+        Тепер обраний вказівник вказує на початок масиву з виділеною пам'яттю.
+
+        Вказівник - посередник між пам'яттю та програмою. Використовується щоб займати менше пам'яті.
+        
+    */
+    
+    /*
+    Заданий одномірний масив цілих чисел А розміру N. 
+    Знайти номер останнього максимального значення серед від’ємних елементів,
+    розташованих правіше елемента, рівного Т.       
+    */
+    double *A;
+    int N, i, T, iT=0, max=0, res=0, *pA=A;
+    cout << "Input array size: " << endl;
+    cin >> N;
+    A = new double[N];
+    for (i = 0; i < N; i++){
+        cout << "A[" << i << "]= ";
+        cin >> A[i];
+    }
+    
+    cout << "Input T: ";
+    cin >> T;
+    for (i = 0; i < N; i++)
+    {
+        if (A[i] == T) {
+            iT = i;
+        }
+    }
+    cout << "Index T: " << iT << endl;
+
+    //max = A[iT+1];
+    max = m;
+    for (i=0; i < N; i++) 
+    {
+        if ((i > iT) && (A[i] < 0)) {
+            if (A[i] > max) {
+                max = A[i];  
+                //res = i;
+                *pA = A[i];
+            }
+        }
+    }
+    //cout << "Index RESULT: " << res;
+    cout << "Index RESULT: " << *pA;
+    delete[] A; 
+
     return 0;
 }
    
