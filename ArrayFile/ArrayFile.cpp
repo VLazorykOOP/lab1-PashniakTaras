@@ -43,13 +43,14 @@ int main()
         Виділяєш потрібну к-сть пам'яті за допомогою цього вказівника
         Тепер обраний вказівник вказує на початок масиву з виділеною пам'яттю.
 
-        Вказівник - посередник між пам'яттю та програмою. Використовується щоб займати менше пам'яті.
+        Вказівник - посередник між пам'яттю та програмою. Використовується щоб займати менше пам'яті. */
         
-    double *A;
-    int N, i, T, iT=0, max=0, res=0, *pA=A;
+    double *A, *pA;
+    int N, i, T, iT=0, max=0, res=0;
     cout << "Input array size: " << endl;
     cin >> N;
-    A = new double[N];
+    A = new double[N];    
+    pA = A;
     for (i = 0; i < N; i++){
         cout << "A[" << i << "]= ";
         cin >> A[i];
@@ -70,7 +71,7 @@ int main()
     for (i=0; i < N; i++) 
     {
         if ((i > iT) && (A[i] < 0)) {
-            if (A[i] > max) {
+            if (A[i] >= max) {
                 max = A[i];  
                 //res = i;
                 *pA = A[i];
@@ -81,7 +82,7 @@ int main()
     cout << "Index RESULT: " << *pA;
     delete[] A;
     return 0;
-    */
+    
     
     /* Тест vector 
 
@@ -104,7 +105,7 @@ int main()
     крім ai. i = 1,2,..., n; */
     //  Кожен ел-т є сер арифм значенням з ел-тів масиву А, окрім поточного і. 
     
-    double A[MAX2], B[MAX2], sum;
+    /* double A[MAX2], B[MAX2], sum;
     int nA, nB, i, j;
     do {
         cout << "Input array size N< " << MAX2 << endl;
@@ -130,6 +131,7 @@ int main()
         cout << B[i] << "\t";
     }
     cout << endl;
+    return 0; */
 
 }
    
