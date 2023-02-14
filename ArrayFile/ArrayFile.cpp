@@ -104,8 +104,8 @@ int main()
     крім ai. i = 1,2,..., n; */
     //  Кожен ел-т є сер арифм значенням з ел-тів масиву А, окрім поточного і. 
     
-    double A[MAX2], B[MAX2];
-    int nA, nB, i, j, sum;
+    double A[MAX2], B[MAX2], sum;
+    int nA, nB, i, j;
     do {
         cout << "Input array size N< " << MAX2 << endl;
         cin >> nA;
