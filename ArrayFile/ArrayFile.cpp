@@ -12,14 +12,14 @@ const int MAX2 = 200;
 const int m = -100000;
 using namespace std;
 
-int main()
-{   
-    /*Завдання 1
-    
+/* Завдання 1
+   Задано одновимірний масив А розміру N. Знайти кількість нульових елементів. */
+void task_1() 
+{
     double A[MAX];
-    int nA, nZero=0, i;
+    int nA, nZero = 0, i;
     do {
-        cout << "Input array size N< "<< MAX << endl;
+        cout << "Input array size N< " << MAX << endl;
         cin >> nA;
     } while (nA<0 || nA>MAX);
     for (i = 0; i < nA; i++)
@@ -27,35 +27,30 @@ int main()
         cout << "A[" << i << "] = ";
         cin >> A[i];
     }
-    
+
     for (i = 0; i < nA; i++)
         if (A[i] == 0) nZero++;
     cout << "Amount of zero-elemts: " << nZero << endl;
-    return;
-    */ 
+\
+}
 
-    /*Завдання 2
-        Заданий одномірний масив цілих чисел А розміру N. 
-        Знайти номер останнього максимального значення серед від’ємних елементів,
-        розташованих правіше елемента, рівного Т. 
-
-        Створюєш вказівник
-        Виділяєш потрібну к-сть пам'яті за допомогою цього вказівника
-        Тепер обраний вказівник вказує на початок масиву з виділеною пам'яттю.
-
-        Вказівник - посередник між пам'яттю та програмою. Використовується щоб займати менше пам'яті. */
-        
-    double *A, *pA;
-    int N, i, T, iT=0, max=0, res=0;
+/* Завдання 2
+   Заданий одномірний масив цілих чисел А розміру N.
+   Знайти номер останнього максимального значення серед від’ємних елементів,
+   розташованих правіше елемента, рівного Т. */
+void task_2()
+{
+    double* A, * pA;
+    int N, i, T, iT = 0, max = 0, res = 0;
     cout << "Input array size: " << endl;
     cin >> N;
-    A = new double[N];    
+    A = new double[N];
     pA = A;
-    for (i = 0; i < N; i++){
+    for (i = 0; i < N; i++) {
         cout << "A[" << i << "]= ";
         cin >> A[i];
     }
-    
+
     cout << "Input T: ";
     cin >> T;
     for (i = 0; i < N; i++)
@@ -68,11 +63,11 @@ int main()
 
     //max = A[iT+1];
     max = m;
-    for (i=0; i < N; i++) 
+    for (i = 0; i < N; i++)
     {
         if ((i > iT) && (A[i] < 0)) {
             if (A[i] >= max) {
-                max = A[i];  
+                max = A[i];
                 //res = i;
                 *pA = A[i];
             }
@@ -81,31 +76,16 @@ int main()
     //cout << "Index RESULT: " << res;
     cout << "Index RESULT: " << *pA;
     delete[] A;
-    return 0;
-    
-    
-    /* Тест vector 
+}
 
-    vector<int> numbers{1,2,3,4,5};
-    int n1 = numbers.front();
-    int n2 = numbers.back();
-    int x = numbers[3];
-    cout << n1 << endl;
-    cout << n2 << endl;
-    cout << x << endl;
-    for (int n : numbers) cout << n << "\t";
-    cout << endl;
-    return 0; 
-    */
-
-    /* Завдання 3 
-    Задано масив дійсних чисел An, n <= 200
-    Розробити програму, яка будує масив Bn за правилом: 
-    bi є середнім арифметичним значенням чисел a1 a2,..., an, 
-    крім ai. i = 1,2,..., n; */
-    //  Кожен ел-т є сер арифм значенням з ел-тів масиву А, окрім поточного і. 
-    
-    /* double A[MAX2], B[MAX2], sum;
+/* Завдання 3
+   Задано масив дійсних чисел An, n <= 200
+   Розробити програму, яка будує масив Bn за правилом:
+   bi є середнім арифметичним значенням чисел a1 a2,..., an,
+   крім ai. i = 1,2,..., n; */
+void task_3()
+{
+    double A[MAX2], B[MAX2], sum;
     int nA, nB, i, j;
     do {
         cout << "Input array size N< " << MAX2 << endl;
@@ -124,14 +104,65 @@ int main()
             if (i != j) sum += A[j];
         }
         sum = sum / (nA - 1);
-        B[i] = sum; 
+        B[i] = sum;
     }
+    cout << endl;
 
     for (i = 0; i < nA; i++) {
         cout << B[i] << "\t";
     }
     cout << endl;
-    return 0; */
+    
+}
+int main()
+{
+    int task;
+    printf("Main menu:\n   1. Task 1\n   2. Task 2\n   3. Task 3\n");
+    do {
+        cin >> task;
+    } while (0 < task > 3);
+       switch (task)
+    {
+    case 1:
+        system("cls");
+        task_1();
+        break;
+    case 2:
+        system("cls");
+        task_2();
+        break;
+    case 3:
+        system("cls");
+        task_3();
+        break;
+}
+    
+
+   
+
+        
+        
+   
+    
+    /* Тест vector 
+
+    vector<int> numbers{1,2,3,4,5};
+    int n1 = numbers.front();
+    int n2 = numbers.back();
+    int x = numbers[3];
+    cout << n1 << endl;
+    cout << n2 << endl;
+    cout << x << endl;
+    for (int n : numbers) cout << n << "\t";
+    cout << endl;
+    return 0; 
+    */
+
+    
+    //  Кожен ел-т є сер арифм значенням з ел-тів масиву А, окрім поточного і. 
+    
+     
+   
 
 }
    
