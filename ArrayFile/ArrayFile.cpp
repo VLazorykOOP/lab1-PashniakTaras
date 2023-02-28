@@ -14,7 +14,7 @@ using namespace std;
 
 /* Завдання 1
    Задано одновимірний масив А розміру N. Знайти кількість нульових елементів. */
-void task_1() 
+void task1( int N, int A[])
 {
     double A[MAX];
     int nA, nZero = 0, i;
@@ -38,7 +38,7 @@ void task_1()
    Заданий одномірний масив цілих чисел А розміру N.
    Знайти номер останнього максимального значення серед від’ємних елементів,
    розташованих правіше елемента, рівного Т. */
-void task_2()
+void task2(int N, int A[])
 {
     double* A, * pA;
     int N, i, T, iT = 0, max = 0, res = 0;
@@ -83,7 +83,7 @@ void task_2()
    Розробити програму, яка будує масив Bn за правилом:
    bi є середнім арифметичним значенням чисел a1 a2,..., an,
    крім ai. i = 1,2,..., n; */
-void task_3()
+void task3(int N, int A[])
 {
     double A[MAX2], B[MAX2], sum;
     int nA, nB, i, j;
@@ -114,6 +114,28 @@ void task_3()
     cout << endl;
     
 }
+
+int realise_functions()
+{
+    int function_number = 0;
+    cout << "Possible functions:\n   Function 1: Input/Output from console to file\n   Function 2: Input array from console + Input random numbers to array + Output array to binary file\n   Function 3: Input/Output array from file to file to console\n   Function 4: InputOutput array from file to vector to console\n";
+    cout << "Enter function number you want to use: ";
+    cin >> function_number;
+    system("cls");
+    return function_number;
+}
+
+int realise_tasks()
+{
+    printf("Main menu:\n   1. Task 1\n   2. Task 2\n   3. Task 3\n");
+    int task = 0;
+    do {
+        cin >> task;
+    } while (0 < task > 3);
+    system("cls");
+    return task;
+}
+
 int main()
 {
     int task;
